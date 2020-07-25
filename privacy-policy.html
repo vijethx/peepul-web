@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Peepul Landing Page</title><style>
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        text-indent: -1.7em;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .highlight-default {
+    }
+    .highlight-gray {
+        color: rgb(155,154,151);
+    }
+    .highlight-brown {
+        color: rgb(100,71,58);
+    }
+    .highlight-orange {
+        color: rgb(217,115,13);
+    }
+    .highlight-yellow {
+        color: rgb(223,171,1);
+    }
+    .highlight-teal {
+        color: rgb(15,123,108);
+    }
+    .highlight-blue {
+        color: rgb(11,110,153);
+    }
+    .highlight-purple {
+        color: rgb(105,64,165);
+    }
+    .highlight-pink {
+        color: rgb(173,26,114);
+    }
+    .highlight-red {
+        color: rgb(224,62,62);
+    }
+    .highlight-gray_background {
+        background: rgb(235,236,237);
+    }
+    .highlight-brown_background {
+        background: rgb(233,229,227);
+    }
+    .highlight-orange_background {
+        background: rgb(250,235,221);
+    }
+    .highlight-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .highlight-teal_background {
+        background: rgb(221,237,234);
+    }
+    .highlight-blue_background {
+        background: rgb(221,235,241);
+    }
+    .highlight-purple_background {
+        background: rgb(234,228,242);
+    }
+    .highlight-pink_background {
+        background: rgb(244,223,235);
+    }
+    .highlight-red_background {
+        background: rgb(251,228,228);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+    }
+    .block-color-brown {
+        color: rgb(100,71,58);
+        fill: rgb(100,71,58);
+    }
+    .block-color-orange {
+        color: rgb(217,115,13);
+        fill: rgb(217,115,13);
+    }
+    .block-color-yellow {
+        color: rgb(223,171,1);
+        fill: rgb(223,171,1);
+    }
+    .block-color-teal {
+        color: rgb(15,123,108);
+        fill: rgb(15,123,108);
+    }
+    .block-color-blue {
+        color: rgb(11,110,153);
+        fill: rgb(11,110,153);
+    }
+    .block-color-purple {
+        color: rgb(105,64,165);
+        fill: rgb(105,64,165);
+    }
+    .block-color-pink {
+        color: rgb(173,26,114);
+        fill: rgb(173,26,114);
+    }
+    .block-color-red {
+        color: rgb(224,62,62);
+        fill: rgb(224,62,62);
+    }
+    .block-color-gray_background {
+        background: rgb(235,236,237);
+    }
+    .block-color-brown_background {
+        background: rgb(233,229,227);
+    }
+    .block-color-orange_background {
+        background: rgb(250,235,221);
+    }
+    .block-color-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .block-color-teal_background {
+        background: rgb(221,237,234);
+    }
+    .block-color-blue_background {
+        background: rgb(221,235,241);
+    }
+    .block-color-purple_background {
+        background: rgb(234,228,242);
+    }
+    .block-color-pink_background {
+        background: rgb(244,223,235);
+    }
+    .block-color-red_background {
+        background: rgb(251,228,228);
+    }
+    .select-value-color-default { background-color: rgba(206,205,202,0.5); }
+    .select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+    .select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+    .select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+    .select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+    .select-value-color-green { background-color: rgba(0,135,107,0.2); }
+    .select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+    .select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+    .select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+    .select-value-color-red { background-color: rgba(255,0,26,0.2); }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body><article id="132fd1fb-1175-499c-9bef-70044a7c99ef" class="page sans"><h1 id="a86613a3-ee54-4a47-bb52-8f3fcbc357f0" class=""><strong>PRIVACY POLICY</strong></h2><p id="84fd9897-8c70-4698-8412-24956adf1cd2" class="">Effective date: 2020-07-01</p><p id="6b55a794-8aa5-41b2-ae00-9a2e58126748" class="">1. <strong>Introduction</strong></p><p id="12c030de-2997-4f4c-9ede-8deacb3142e7" class="">Welcome to <strong> Peepul</strong>.</p><p id="9d885f84-dcb7-4b4b-a9e1-ce12ccffe3e8" class=""><strong>Peepul</strong> (“us”, “we”, or “our”) operates <strong>https://www.peepul.app</strong> (hereinafter referred to as <strong>“Service”</strong>).</p><p id="1186f3c1-2b1c-4a17-a9a4-7e6913f8a1ac" class="">Our Privacy Policy governs your visit to <strong>https://www.peepul.app</strong>, and explains how we collect, safeguard and disclose information that results from your use of our Service.</p><p id="eb591fca-d77b-440b-9241-1cef4c56a7b9" class="">We use your data to provide and improve Service. By using Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.</p><p id="68cbea74-221d-454f-adf5-8e119be4ca43" class="">Our Terms and Conditions (<strong>“Terms”</strong>) govern all use of our Service and together with the Privacy Policy constitutes your agreement with us (<strong>“agreement”</strong>).</p><p id="b83c274f-5d3e-42a8-bb49-40fc10b08957" class="">2. <strong>Definitions</strong></p><p id="0490b208-4c2b-4e97-9086-509372ad1bf8" class=""><strong>SERVICE</strong> means the https://www.peepul.app website operated by Peepul.</p><p id="bed6c125-416a-43b5-926c-bdb48a63789c" class=""><strong>PERSONAL DATA</strong> means data about a living individual who can be identified from those data (or from those and other information either in our possession or likely to come into our possession).</p><p id="2ad500a7-65e3-4347-a033-2b8f4f683e5a" class=""><strong>USAGE DATA</strong> is data collected automatically either generated by the use of Service or from Service infrastructure itself (for example, the duration of a page visit).</p><p id="85d9d1b2-92a6-4056-9817-fdfa57ed989d" class=""><strong>COOKIES</strong> are small files stored on your device (computer or mobile device).</p><p id="ace2ab13-46f5-4d20-9a76-93d5c454cd43" class=""><strong>DATA CONTROLLER</strong> means a natural or legal person who (either alone or jointly or in common with other persons) determines the purposes for which and the manner in which any personal data are, or are to be, processed. For the purpose of this Privacy Policy, we are a Data Controller of your data.</p><p id="6afe12df-d9ee-4715-85c4-9cdd6e6cdaf9" class=""><strong>DATA PROCESSORS (OR SERVICE PROVIDERS)</strong> means any natural or legal person who processes the data on behalf of the Data Controller. We may use the services of various Service Providers in order to process your data more effectively.</p><p id="6b95ca8c-f44b-4766-a2c5-19b43c0aface" class=""><strong>DATA SUBJECT</strong> is any living individual who is the subject of Personal Data.</p><p id="eb81e034-c1f4-4364-b6f9-f1f77678b25d" class=""><strong>THE USER</strong> is the individual using our Service. The User corresponds to the Data Subject, who is the subject of Personal Data.</p><p id="8fa451ed-1d51-47a3-b76c-6fe46f2155fd" class="">3. <strong>Information Collection and Use</strong></p><p id="9b08bad8-5d69-411a-96ac-b20c094747bc" class="">We collect several different types of information for various purposes to provide and improve our Service to you.</p><p id="3194ab04-e768-42b9-9c87-0c829ac8e058" class="">4. <strong>Types of Data Collected</strong></p><p id="44095627-d6cf-4965-8359-4677249a52db" class=""><strong>Personal Data</strong></p><p id="d9603452-5aa9-4709-9fae-32380670a3ff" class="">While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (<strong>“Personal Data”</strong>). Personally identifiable information may include, but is not limited to:</p><p id="7f506369-25df-4d06-b993-5ef61ece5959" class="">0.1. Email address</p><p id="90be57b4-59f2-4ab1-a84e-b43024c7ab28" class="">0.2. First name and last name</p><p id="712c988b-0298-44ed-afb2-8eeb70f2b869" class="">0.3. Phone number</p><p id="f030cc3a-232b-4615-9f9b-494273eade96" class="">0.4. Address, Country, State, Province, ZIP/Postal code, City</p><p id="327be98a-fb3c-4643-b3ed-296693460e4b" class="">0.5. Cookies and Usage Data</p><p id="0b79154a-9aee-49de-9ed0-bcdf8a96a081" class="">We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any, or all, of these communications from us by following the unsubscribe link.</p><p id="735ad9f1-44e4-4d79-a7ff-a90816ce3764" class=""><strong>Usage Data</strong></p><p id="736f0c1c-1613-49ca-8f05-b946ca0de683" class="">We may also collect information that your browser sends whenever you visit our Service or when you access Service by or through any device (<strong>“Usage Data”</strong>).</p><p id="39c01049-bc51-460c-a18f-ff23c5a14287" class="">This Usage Data may include information such as your computer’s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p><p id="59742b65-e26d-4736-87d4-f7efe9edf029" class="">When you access Service with a device, this Usage Data may include information such as the type of device you use, your device unique ID, the IP address of your device, your device operating system, the type of Internet browser you use, unique device identifiers and other diagnostic data.</p><p id="6432fca4-a5b2-4ac2-988f-f8d5bcd023d6" class=""><strong>Tracking Cookies Data</strong></p><p id="983db70d-bc7a-4f74-8c9a-6b39f9a2643a" class="">We use cookies and similar tracking technologies to track the activity on our Service and we hold certain information.</p><p id="316c0418-77dc-4247-a615-49f55ca8fd38" class="">Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used such as beacons, tags and scripts to collect and track information and to improve and analyze our Service.</p><p id="47be6390-411e-4f93-8b33-d7197f5fabcf" class="">You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p><p id="3dde48e0-24e9-4e43-b9c1-770f3b7f0d32" class="">Examples of Cookies we use:</p><p id="7688e598-983e-4c06-b38e-3f8d89f342eb" class="">0.1. <strong>Session Cookies:</strong> We use Session Cookies to operate our Service.</p><p id="096e2022-0c7c-4854-9053-510080cb7648" class="">0.2. <strong>Preference Cookies:</strong> We use Preference Cookies to remember your preferences and various settings.</p><p id="5f4578b3-65ef-4956-b2ff-ef4d6d40a88f" class="">0.3. <strong>Security Cookies:</strong> We use Security Cookies for security purposes.</p><p id="1a12abcf-2a9c-4003-b0d0-232b63012e15" class="">0.4. <strong>Advertising Cookies:</strong> Advertising Cookies are used to serve you with advertisements that may be relevant to you and your interests.</p><p id="f958dbb4-6d9d-4cc8-a065-651b5617c148" class=""><strong>Other Data</strong></p><p id="ab93e858-a70e-4ee5-8472-c2778dedc0fc" class="">While using our Service, we may also collect the following information: sex, age, date of birth, place of birth, passport details, citizenship, registration at place of residence and actual address, telephone number (work, mobile), details of documents on education, qualification, professional training, employment agreements, <a href="https://policymaker.io/non-disclosure-agreement/">NDA agreements</a>, information on bonuses and compensation, information on marital status, family members, social security (or other taxpayer identification) number, office location and other data.</p><p id="b713074d-ef85-43f1-9a9b-57bedda6c672" class="">5. <strong>Use of Data</strong></p><p id="d89b4a04-188d-492a-92db-b653cec8318b" class="">Peepul uses the collected data for various purposes:</p><p id="d826cdb7-3c5a-47a2-aeb1-c2c1c2d3f832" class="">0.1. to provide and maintain our Service;</p><p id="d854cbee-f8f1-4704-ba31-fdaac5124425" class="">0.2. to notify you about changes to our Service;</p><p id="631a9d63-432b-4bd3-a00c-16191ce62903" class="">0.3. to allow you to participate in interactive features of our Service when you choose to do so;</p><p id="7902bf95-e82c-477b-b6a2-faf92277a29f" class="">0.4. to provide customer support;</p><p id="5d1dbd8a-f3cb-4ee8-9be4-9c260398af36" class="">0.5. to gather analysis or valuable information so that we can improve our Service;</p><p id="88d14367-fe4f-462a-959f-ba82a1159ecc" class="">0.6. to monitor the usage of our Service;</p><p id="daaa9aa9-e863-46bb-82b1-4b0ba005a68a" class="">0.7. to detect, prevent and address technical issues;</p><p id="26096f48-2f88-43ed-95f4-6ac4b2090ae8" class="">0.8. to fulfil any other purpose for which you provide it;</p><p id="b13d4c28-5524-4db2-b95c-7c83983bac65" class="">0.9. to carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection;</p><p id="2f4ea642-c2ca-474d-9dd7-02c459e8f54c" class="">0.10. to provide you with notices about your account and/or subscription, including expiration and renewal notices, email-instructions, etc.;</p><p id="a5232e99-cacb-45f4-b96c-44985f2545db" class="">0.11. to provide you with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless you have opted not to receive such information;</p><p id="d5b8e709-0438-43c8-835c-00423293317b" class="">0.12. in any other way we may describe when you provide the information;</p><p id="e80d8300-e3f8-4f23-a934-940484f1e2a9" class="">0.13. for any other purpose with your consent.</p><p id="d80776d6-0fc7-4641-a006-b8efdb87462d" class="">6. <strong>Retention of Data</strong></p><p id="48af802d-9fff-43ca-84e3-39da0ae0b3cc" class="">We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p><p id="54dee9b6-cadc-4192-b04e-7750b0195d4d" class="">We will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer time periods.</p><p id="acbdadaa-0144-4914-b48a-318af10140bb" class="">7. <strong>Transfer of Data</strong></p><p id="4940f235-27cb-4907-819d-5fe9c0cc38fa" class="">Your information, including Personal Data, may be transferred to – and maintained on – computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p><p id="34807122-e0eb-4305-b085-09477f3108c3" class="">If you are located outside India and choose to provide information to us, please note that we transfer the data, including Personal Data, to India and process it there.</p><p id="7265602f-702c-412c-b159-b5720d3d8879" class="">Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p><p id="99a43cdf-6df6-4949-a909-1529fb66d29a" class="">Peepul will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place including the security of your data and other personal information.</p><p id="c45aa8e7-fd5f-4b21-9cf9-1cd1ade75e47" class="">8. <strong>Disclosure of Data</strong></p><p id="8588b60a-5ed9-4693-9d1e-5baaf9831713" class="">We may disclose personal information that we collect, or you provide:</p><p id="a3a7e158-637d-453b-89be-cc2f07241ddd" class="">0.1. <strong>Disclosure for Law Enforcement.</strong></p><p id="57a34f2c-d96f-4ff3-9950-f3f9e15e9083" class="">Under certain circumstances, we may be required to disclose your Personal Data if required to do so by law or in response to valid requests by public authorities.</p><p id="bf5b6639-5f43-4f9e-816b-f52205a68c5a" class="">0.2. <strong>Business Transaction.</strong></p><p id="7e19b033-ef4c-43a6-981c-4bf38a560a3d" class="">If we or our subsidiaries are involved in a merger, acquisition or asset sale, your Personal Data may be transferred.</p><p id="7e70b42a-8c9e-4533-a773-d8aaec6bee04" class="">0.3. <strong>Other cases. We may disclose your information also:</strong></p><p id="84c6e023-99da-4c5e-9a3b-d17ce95cacbf" class="">0.3.1. to our subsidiaries and affiliates;</p><p id="9f23fca8-fd34-4e0f-bcff-5872b50ed8ab" class="">0.3.2. to contractors, service providers, and other third parties we use to support our business;</p><p id="f76799b2-1a36-4970-b71a-87bb9623c4a4" class="">0.3.3. to fulfill the purpose for which you provide it;</p><p id="6038d790-c2a9-4199-9644-6a86e4b0ed3f" class="">0.3.4. for the purpose of including your company’s logo on our website;</p><p id="64056b01-1440-43fd-9d27-d981e74b05a2" class="">0.3.5. for any other purpose disclosed by us when you provide the information;</p><p id="e68b0a4b-c732-49c3-bac4-9399fbac3ffc" class="">0.3.6. with your consent in any other cases;</p><p id="116bfcbe-5278-43ae-93b8-b4f742afd1df" class="">0.3.7. if we believe disclosure is necessary or appropriate to protect the rights, property, or safety of the Company, our customers, or others.</p><p id="eeb1bc6f-fd31-4f7f-9f0b-4c607faae900" class="">9. <strong>Security of Data</strong></p><p id="8aca8c65-2bb0-4cc9-91fe-66c296e21df5" class="">The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p><p id="26d50e73-465c-462b-9e03-0b1234b301c9" class="">10. <strong>Your Data Protection Rights Under General Data Protection Regulation (GDPR)</strong></p><p id="c14815fb-33c5-432a-b6ec-b45bbeb0685f" class="">If you are a resident of the European Union (EU) and European Economic Area (EEA), you have certain data protection rights, covered by GDPR.</p><p id="98752575-d0cb-43b9-9df0-91ebf50a721a" class="">We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.</p><p id="9066f856-c651-4e3a-b578-27b59d501987" class="">If you wish to be informed what Personal Data we hold about you and if you want it to be removed from our systems, please email us at <strong>rk@peepul.app</strong>.</p><p id="9cdd8591-3183-4f9d-98ff-c2253efa31cd" class="">In certain circumstances, you have the following data protection rights:</p><p id="461f13ea-1113-4367-be6f-68f3a6228474" class="">0.1. the right to access, update or to delete the information we have on you;</p><p id="4ec8dbe0-92a2-44d3-82bd-57e0d759bb73" class="">0.2. the right of rectification. You have the right to have your information rectified if that information is inaccurate or incomplete;</p><p id="a08d0042-92ed-45ba-af82-f933e260eee3" class="">0.3. the right to object. You have the right to object to our processing of your Personal Data;</p><p id="0f511a34-4eb3-4e3e-ae2a-395b9cdd381e" class="">0.4. the right of restriction. You have the right to request that we restrict the processing of your personal information;</p><p id="b1f74804-c58b-45ff-ad8e-45008d6a93aa" class="">0.5. the right to data portability. You have the right to be provided with a copy of your Personal Data in a structured, machine-readable and commonly used format;</p><p id="74c94d2e-d5b3-4a2d-9c37-437b9e6311e9" class="">0.6. the right to withdraw consent. You also have the right to withdraw your consent at any time where we rely on your consent to process your personal information;</p><p id="88e70b7a-b5ef-453e-aeda-fe09d86ffd3a" class="">Please note that we may ask you to verify your identity before responding to such requests. Please note, we may not able to provide Service without some necessary data.</p><p id="0c45f421-3503-4c1c-b20e-9921b6be74be" class="">You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</p><p id="1d71c4ae-922a-47d1-be40-7888fe3c605c" class="">11. <strong>Your Data Protection Rights under the California Privacy Protection Act (CalOPPA)</strong></p><p id="fb80ddff-ede3-426a-b5d5-3b0dd4073b61" class="">CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law’s reach stretches well beyond California to require a person or company in the United States (and conceivable the world) that operates websites collecting personally identifiable information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy.</p><p id="cac287b3-cd47-433e-86ec-78d615bfd5d6" class="">According to CalOPPA we agree to the following:</p><p id="69b9acda-98f0-44f6-a642-9f789b99b943" class="">0.1. users can visit our site anonymously;</p><p id="97a68b1e-4381-4476-81d0-3bd3e121c635" class="">0.2. our Privacy Policy link includes the word “Privacy”, and can easily be found on the home page of our website;</p><p id="1b889ee8-a6d5-4206-b13e-a1bcb8d78a08" class="">0.3. users will be notified of any privacy policy changes on our Privacy Policy Page;</p><p id="bb0148f5-eecc-424b-8c27-a14a20055635" class="">0.4. users are able to change their personal information by emailing us at <strong>rk@peepul.app</strong>.</p><p id="1d6f0feb-e169-40e1-89bd-018c9853c4d2" class="">Our Policy on “Do Not Track” Signals:</p><p id="b7a7e611-1dc4-44de-a7da-c24088407d45" class="">We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track browser mechanism is in place. Do Not Track is a preference you can set in your web browser to inform websites that you do not want to be tracked.</p><p id="cbb960c2-89f7-4853-8129-80255a924117" class="">You can enable or disable Do Not Track by visiting the Preferences or Settings page of your web browser.</p><p id="018cc956-a1ba-4d3b-b892-6dff715f6b8f" class="">12. <strong>Your Data Protection Rights under the California Consumer Privacy Act (CCPA)</strong></p><p id="b524db6a-ba7f-4f24-80d5-1ee89ff6236a" class="">If you are a California resident, you are entitled to learn what data we collect about you, ask to delete your data and not to sell (share) it. To exercise your data protection rights, you can make certain requests and ask us:</p><p id="94fa6286-2a17-4bef-b99e-b7dc0593afe6" class=""><strong>0.1. What personal information we have about you. If you make this request, we will return to you:</strong></p><p id="350bf6e0-ca46-471f-b6fd-cdc70e56f3e5" class="">0.0.1. The categories of personal information we have collected about you.</p><p id="a8c3a018-0b6f-467d-9de7-744cb30ff44b" class="">0.0.2. The categories of sources from which we collect your personal information.</p><p id="e28c7389-10aa-44d3-8f1e-8410cb8e92b7" class="">0.0.3. The business or commercial purpose for collecting or selling your personal information.</p><p id="b4ab001f-de67-420a-b9fa-80f250ea4767" class="">0.0.4. The categories of third parties with whom we share personal information.</p><p id="f11cca4d-0fb7-4cbb-83fa-bfed3cdb8646" class="">0.0.5. The specific pieces of personal information we have collected about you.</p><p id="23bcbd85-cc90-4199-adf8-627c8e06afd1" class="">0.0.6. A list of categories of personal information that we have sold, along with the category of any other company we sold it to. If we have not sold your personal information, we will inform you of that fact.</p><p id="cf1ddfad-6366-42c4-a512-f53afc1dd0ef" class="">0.0.7. A list of categories of personal information that we have disclosed for a business purpose, along with the category of any other company we shared it with.</p><p id="5c8dd253-20ab-4e31-bf37-ae98c93eb997" class="">Please note, you are entitled to ask us to provide you with this information up to two times in a rolling twelve-month period. When you make this request, the information provided may be limited to the personal information we collected about you in the previous 12 months.</p><p id="d93b880c-715b-4048-b31b-555dca6ca347" class=""><strong>0.2. To delete your personal information. If you make this request, we will delete the personal information we hold about you as of the date of your request from our records and direct any service providers to do the same. In some cases, deletion may be accomplished through de-identification of the information. If you choose to delete your personal information, you may not be able to use certain functions that require your personal information to operate.</strong></p><p id="f7b506d0-9e87-4316-959e-4a80a75b5e6e" class=""><strong>0.3. To stop selling your personal information. We don’t sell or rent your personal information to any third parties for any purpose. We do not sell your personal information for monetary consideration. However, under some circumstances, a transfer of personal information to a third party, or within our family of companies, without monetary consideration may be considered a “sale” under California law. You are the only owner of your Personal Data and can request disclosure or deletion at any time.</strong></p><p id="8533a48b-89af-4254-8cc5-078c40e409a9" class="">If you submit a request to stop selling your personal information, we will stop making such transfers.</p><p id="5d3932e2-ae5d-408a-b3d9-8b567ab0321e" class="">Please note, if you ask us to delete or stop selling your data, it may impact your experience with us, and you may not be able to participate in certain programs or membership services which require the usage of your personal information to function. But in no circumstances, we will discriminate against you for exercising your rights.</p><p id="328685e2-432a-4703-84b0-977d196e564b" class="">To exercise your California data protection rights described above, please send your request(s) by email: <strong>rk@peepul.app</strong>.</p><p id="10bbed84-7fe7-4187-a288-1f54ff0f8268" class="">Your data protection rights, described above, are covered by the CCPA, short for the California Consumer Privacy Act. To find out more, visit the official California Legislative Information website. The CCPA took effect on 01/01/2020.</p><p id="1a148c49-6629-48c7-a9dc-f854a5b8836d" class="">13. <strong>Service Providers</strong></p><p id="00c3e63c-5688-49f2-a9cd-23efa836768e" class="">We may employ third party companies and individuals to facilitate our Service (<strong>“Service Providers”</strong>), provide Service on our behalf, perform Service-related services or assist us in analysing how our Service is used.</p><p id="067039df-e3bc-408e-8525-e98f9fdd50b6" class="">These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p><p id="a96dae46-1df4-4184-811f-8e8eb0018a47" class="">14. <strong>Analytics</strong></p><p id="be323e7f-21d1-4ca3-814a-8c8d7b9262ec" class="">We may use third-party Service Providers to monitor and analyze the use of our Service.</p><p id="ca93670d-89b5-4dd7-a8c4-7ef693c00261" class="">15. <strong>CI/CD tools</strong></p><p id="b53cfdc6-6ad9-4930-8088-ef06f25f24b1" class="">We may use third-party Service Providers to automate the development process of our Service.</p><p id="21368182-15f6-4af4-a9a7-4ba03f555de1" class="">16. <strong>Behavioral Remarketing</strong></p><p id="7498c689-6577-4d73-a277-b57a93746d61" class="">We may use remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimise and serve ads based on your past visits to our Service.</p><p id="ac886924-7c7b-4f36-9377-c1fc83098994" class="">17. <strong>Links to Other Sites</strong></p><p id="2c5c3a25-a41b-43bb-b2ae-fa924edfd82e" class="">Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party’s site. We strongly advise you to review the Privacy Policy of every site you visit.</p><p id="afa69450-325c-4712-ad16-e5bb133d5807" class="">We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p><p id="f21a4f09-2170-43d1-bc66-e79baf184994" class="">For example, the outlined <a href="https://policymaker.io/privacy-policy/">privacy statement</a> has been made using <a href="https://policymaker.io/">PolicyMaker.io</a>, free tool that helps create high-quality legal documents. PolicyMaker’s <a href="https://policymaker.io/privacy-policy/">free privacy policy generator</a> is an easy-to-use tool for creating a <a href="https://policymaker.io/blog-privacy-policy/">privacy policy for blog</a>, website, e-commerce store or mobile app.</p><p id="60a003da-200d-4712-8fab-5dee39aa11ce" class="">18. <strong>Children’s Privacy</strong></p><p id="4372e2a9-bb4f-4dce-b7a1-9e08bf08a106" class="">Our Services are not intended for use by children under the age of 18 (<strong>“Child”</strong> or <strong>“Children”</strong>).</p><p id="bff11ff4-dc08-4ef7-978f-1cf298ba301e" class="">We do not knowingly collect personally identifiable information from Children under 18. If you become aware that a Child has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from Children without verification of parental consent, we take steps to remove that information from our servers.</p><p id="34d0dbc3-5afa-4eb8-8fbf-69ffdc2fef89" class="">19. <strong>Changes to This Privacy Policy</strong></p><p id="1a198b20-0e5c-4630-a51d-8bf480368608" class="">We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p><p id="0094c3f6-3a02-4bbd-8db6-21d5c462afe9" class="">We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update “effective date” at the top of this Privacy Policy.</p><p id="db23fdef-bc4e-49b0-af1e-b8988e9b6360" class="">You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p><p id="d8b993fa-3804-42b8-a42a-c3c3f3bd69f4" class="">20. <strong>Contact Us</strong></p><p id="707c006b-82ea-4e25-b8d8-e16f3c6baece" class="">If you have any questions about this Privacy Policy, please contact us by email: <strong>rk@peepul.app</strong>.</p><p id="c031d082-4641-41c6-a7c6-609ef4c0ad60" class="">This <a href="https://policymaker.io/privacy-policy/">Privacy Statement</a> was created for <strong>https://www.peepul.app</strong> by <a href="https://policymaker.io/">PolicyMaker.io</a> on 2020-07-01.</p><p id="123534b7-9782-4617-8b96-f166d4a18ed9" class="">
+    </p></div></article></body></html>
